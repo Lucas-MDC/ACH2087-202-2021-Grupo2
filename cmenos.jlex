@@ -1,0 +1,28 @@
+class Token
+{
+    String lexeme;
+    String token;
+    String atributo;
+    int linha;
+}
+
+%%
+
+DIGIT=		[0-9]
+LETTER=		[a-zA-Z]
+WHITESPACE=	[ \t\n]     
+
+
+%function next_token
+%type String
+%line
+
+%%
+
+{LETTER}({LETTER}|{DIGIT}*) {return yyline+1 + ": ID " + yytext();}
+{DIGIT}+                    {return yyline+1 + ": INT";}
+"="                         {return yyline+1 + ": ASSIGN";}
+"=="                        {return yyline+1 + ": EQUALS";}
+{WHITESPACE}*               { }
+.               	        {return yyline+1 + ": bad char";}
+{DIGIT}+.+{DIGIT}+          {return yyline+1 + ": FLOAT " + yytext();}
