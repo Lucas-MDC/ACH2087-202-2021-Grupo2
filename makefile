@@ -2,8 +2,11 @@ clean:
 	-rm *.class
 	clear
 
+make lex:
+	jlex cmenos.jlex
+
 all:
 	jlex cmenos.jlex
-	javac Main.java Parser.java cmenos.jlex.java
+	javac Main.java Compilador.java cmenos.jlex.java Lexico.java
 	clear
 	java Main

@@ -4,25 +4,46 @@ class Token
     String token;
     String atributo;
     int linha;
+    int coluna;
+
+    Token(String lexeme, String token, String atributo, int linha)
+    {
+        this.lexeme   = lexeme;
+        this.token    = token;
+        this.atributo = atributo;
+        this.linha    = linha;
+        this.coluna   = coluna;
+    }
+
+    boolean comparaTokens(Token b)
+    {
+        return (this.token.equals(b.token) && this.atributo.equals(b.atributo));
+    }
+
+    String string()
+    {
+        return "l: \"" + this.lexeme + "\", t: " + this.token + ", a: "  + this.atributo;
+    }
 }
 
 %%
 
-DIGIT=		[0-9]
-LETTER=		[a-zA-Z]
-WHITESPACE=	[ \t\n]     
-
+DIGIT   = [0-9]
+NUM     = [0-9]+
+LETTER  = [a-zA-Z]
+ID      = [a-zA-Z]
+WS      = [ \t\n\f\r]     
+WHITESPACE = [ \t\n]  
 
 %function next_token
-%type String
+%type Token
 %line
-
 %%
 
-{LETTER}({LETTER}|{DIGIT}*) {return yyline+1 + ": ID " + yytext();}
-{DIGIT}+                    {return yyline+1 + ": INT";}
-"="                         {return yyline+1 + ": ASSIGN";}
-"=="                        {return yyline+1 + ": EQUALS";}
-{WHITESPACE}*               { }
-.               	        {return yyline+1 + ": bad char";}
-{DIGIT}+.+{DIGIT}+          {return yyline+1 + ": FLOAT " + yytext();}
+
+{WS}+ { }
+if    { return new Token(yytext(), "if",   "", yyline); }
+then  { return new Token(yytext(), "then", "", yyline); }
+else  { return new Token(yytext(), "else", "", yyline); }
+{ID}{ID}+ { return new Token(yytext(), "id", "", yyline); }
+{LETTER} { return new Token(yytext(), "erro lexico", "", yyline); }

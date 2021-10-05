@@ -2,7 +2,7 @@ public class Main
 {
     public static void main(String[] args)
     {
-        Parser p = new Parser();
-        p.parse("program.cm");
+        Compilador c = new Compilador();
+        c.lex("program.cm");
     }
 }

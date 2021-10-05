@@ -4,6 +4,23 @@ class Token
     String token;
     String atributo;
     int linha;
+    int coluna;
+    Token(String lexeme, String token, String atributo, int linha)
+    {
+        this.lexeme   = lexeme;
+        this.token    = token;
+        this.atributo = atributo;
+        this.linha    = linha;
+        this.coluna   = coluna;
+    }
+    boolean comparaTokens(Token b)
+    {
+        return (this.token.equals(b.token) && this.atributo.equals(b.atributo));
+    }
+    String string()
+    {
+        return "l: \"" + this.lexeme + "\", t: " + this.token + ", a: "  + this.atributo;
+    }
 }
 
 
@@ -208,30 +225,34 @@ class Yylex {
 		return res;
 	}
 	private int yy_acpt[] = {
-		/* 0 */ YY_NO_ANCHOR,
+		/* 0 */ YY_NOT_ACCEPT,
 		/* 1 */ YY_NO_ANCHOR,
 		/* 2 */ YY_NO_ANCHOR,
 		/* 3 */ YY_NO_ANCHOR,
 		/* 4 */ YY_NO_ANCHOR,
 		/* 5 */ YY_NO_ANCHOR,
-		/* 6 */ YY_NOT_ACCEPT,
+		/* 6 */ YY_NO_ANCHOR,
 		/* 7 */ YY_NO_ANCHOR,
 		/* 8 */ YY_NO_ANCHOR,
 		/* 9 */ YY_NO_ANCHOR,
 		/* 10 */ YY_NO_ANCHOR,
-		/* 11 */ YY_NO_ANCHOR
+		/* 11 */ YY_NO_ANCHOR,
+		/* 12 */ YY_NO_ANCHOR,
+		/* 13 */ YY_NO_ANCHOR,
+		/* 14 */ YY_NO_ANCHOR
 	};
 	private int yy_cmap[] = unpackFromString(1,130,
-"5:9,6,4,5:2,0,5:18,6,5:15,2:10,5:3,3,5:3,1:26,5:6,1:26,5:5,7:2")[0];
+"0:9,1:2,0,1:2,0:18,1,0:32,10:26,0:6,10:4,6,3,10,5,2,10:2,8,10,7,10:4,9,4,10" +
+":6,0:5,11:2")[0];
 
-	private int yy_rmap[] = unpackFromString(1,12,
-"0,1,2,3,4:2,5,4,5,6,4,7")[0];
+	private int yy_rmap[] = unpackFromString(1,15,
+"0,1,2,3,4:5,5,6,7,8,9,10")[0];
 
-	private int yy_nxt[][] = unpackFromString(8,8,
-"-1,1,2,3,9,4,9,5,-1,10,11,-1:6,6,2,6,-1,6:2,-1:4,7,-1:13,6,8,6,-1,6:2,-1:5," +
-"9,-1,9,-1:3,11,-1:5");
+	private int yy_nxt[][] = unpackFromString(11,12,
+"-1,1,2,8,12,8,14,8:4,3,-1,1,-1:12,4,5,4:7,-1:15,4:9,-1:3,4:5,6,4:3,-1:3,4:4" +
+",7,4:4,-1:3,4:4,9,4:4,-1:3,4:3,11,4:5,-1:3,4:7,10,4,-1:3,4:6,13,4:2,-1");
 
-	public String next_token ()
+	public Token next_token ()
 		throws java.io.IOException {
 		int yy_lookahead;
 		int yy_anchor = YY_NO_ANCHOR;
@@ -275,49 +296,61 @@ class Yylex {
 					}
 					yy_to_mark();
 					switch (yy_last_accept_state) {
-					case 0:
+					case 1:
 						{ }
 					case -2:
 						break;
-					case 1:
-						{return yyline+1 + ": ID " + yytext();}
+					case 2:
+						{ return new Token(yytext(), "erro lexico", "", yyline); }
 					case -3:
 						break;
-					case 2:
-						{return yyline+1 + ": INT";}
+					case 3:
+						
 					case -4:
 						break;
-					case 3:
-						{return yyline+1 + ": ASSIGN";}
+					case 4:
+						{ return new Token(yytext(), "id", "", yyline); }
 					case -5:
 						break;
-					case 4:
-						{return yyline+1 + ": bad char";}
+					case 5:
+						{ return new Token(yytext(), "if",   "", yyline); }
 					case -6:
 						break;
-					case 5:
-						
+					case 6:
+						{ return new Token(yytext(), "then", "", yyline); }
 					case -7:
 						break;
 					case 7:
-						{return yyline+1 + ": EQUALS";}
+						{ return new Token(yytext(), "else", "", yyline); }
 					case -8:
 						break;
 					case 8:
-						{return yyline+1 + ": FLOAT " + yytext();}
+						{ return new Token(yytext(), "erro lexico", "", yyline); }
 					case -9:
 						break;
 					case 9:
-						{ }
+						{ return new Token(yytext(), "id", "", yyline); }
 					case -10:
 						break;
 					case 10:
-						{return yyline+1 + ": ID " + yytext();}
+						{ return new Token(yytext(), "id", "", yyline); }
 					case -11:
 						break;
 					case 11:
-						{return yyline+1 + ": ID " + yytext();}
+						{ return new Token(yytext(), "id", "", yyline); }
 					case -12:
+						break;
+					case 12:
+						{ return new Token(yytext(), "erro lexico", "", yyline); }
+					case -13:
+						break;
+					case 13:
+						{ return new Token(yytext(), "id", "", yyline); }
+					case -14:
+						break;
+					case 14:
+						{ return new Token(yytext(), "erro lexico", "", yyline); }
+					case -15:
 						break;
 					default:
 						yy_error(YY_E_INTERNAL,false);
