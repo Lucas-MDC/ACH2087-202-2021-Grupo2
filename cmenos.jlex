@@ -29,21 +29,53 @@ class Token
 %%
 
 DIGIT   = [0-9]
-NUM     = [0-9]+
 LETTER  = [a-zA-Z]
-ID      = [a-zA-Z]
 WS      = [ \t\n\f\r]     
-WHITESPACE = [ \t\n]  
+
+NUM     = {DIGIT}{DIGIT}+ 
+ID      = {LETTER}{LETTER}+
+ANY     = {LETTER}|{DIGIT}|{WS}
 
 %function next_token
 %type Token
 %line
+
 %%
 
+{WS}+  { }
+if     { return new Token(yytext(), "if"    , "", yyline); }
+then   { return new Token(yytext(), "then"  , "", yyline); }
+else   { return new Token(yytext(), "else"  , "", yyline); }
+int    { return new Token(yytext(), "int"   , "", yyline); }
+while  { return new Token(yytext(), "while" , "", yyline); }
+return { return new Token(yytext(), "return", "", yyline); }
+void   { return new Token(yytext(), "void"  , "", yyline); }
+{ID}   { return new Token(yytext(), "id"    , "", yyline); }
+{NUM}  { return new Token(yytext(), "num" , "", yyline); }
 
-{WS}+ { }
-if    { return new Token(yytext(), "if",   "", yyline); }
-then  { return new Token(yytext(), "then", "", yyline); }
-else  { return new Token(yytext(), "else", "", yyline); }
-{ID}{ID}+ { return new Token(yytext(), "id", "", yyline); }
+/\*({ANY})*\*/    { return new Token(yytext(), "com" , "COM", yyline); }
+
+"*"  { return new Token(yytext(), "mul", "MUL", yyline);  }
+"/"  { return new Token(yytext(), "mul", "DIV", yyline);  }
+"+"  { return new Token(yytext(), "soma", "SUM", yyline); }
+"-"  { return new Token(yytext(), "soma", "SUB", yyline); }
+
+"<"  { return new Token(yytext(), "relop", "LT", yyline); }
+"<=" { return new Token(yytext(), "relop", "LE", yyline); }
+">"  { return new Token(yytext(), "relop", "GT", yyline); }
+">=" { return new Token(yytext(), "relop", "GE", yyline); }
+"==" { return new Token(yytext(), "relop", "EQ", yyline); }
+"!=" { return new Token(yytext(), "relop", "NQ", yyline); }
+
+"="  { return new Token(yytext(), "att", "", yyline); }
+";"  { return new Token(yytext(), "end", "", yyline); }
+","  { return new Token(yytext(), "sep", "", yyline); }
+
+"{"  { return new Token(yytext(), "scope", "BO", yyline); }
+"}"  { return new Token(yytext(), "scope", "BC", yyline); }
+"("  { return new Token(yytext(), "scope", "AO", yyline); }
+")"  { return new Token(yytext(), "scope", "AC", yyline); }
+"["  { return new Token(yytext(), "scope", "LO", yyline); }
+"]"  { return new Token(yytext(), "scope", "LC", yyline); }
+
 {LETTER} { return new Token(yytext(), "erro lexico", "", yyline); }

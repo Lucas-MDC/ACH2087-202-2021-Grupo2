@@ -10,3 +10,4 @@ all:
 	javac Main.java Compilador.java cmenos.jlex.java Lexico.java
 	clear
 	java Main
+	-rm *.class

@@ -67,12 +67,12 @@ public class Lexico
     void printaLexemes()
     {
         System.out.println("* * * * * * * Lexemes * * * * * * *");
-        for(int i = 0; i < tabela_lexemes.size()-1; i++)
+        for(int i = 0; i < tabela_lexemes.size(); i++)
         {
             Object[] lex = tabela_lexemes.get(i);
             Token tok = tabela_tokens.get((int)lex[POS_TOKEN]);
 
-            System.out.println(i + " : " + lex[POS_LINHA] + ":" + lex[POS_COLUNA] + " - l: \"" + lex[POS_LEXEME] + "\", t: " + tok.token + ", a:" + tok.atributo);
+            System.out.println(i + " : " + lex[POS_LINHA] + ":" + lex[POS_COLUNA] + " - l: \"" + lex[POS_LEXEME] + "\", t: " + tok.token + ", a: " + tok.atributo);
         }
     }
 }

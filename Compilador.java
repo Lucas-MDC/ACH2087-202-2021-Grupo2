@@ -1,3 +1,4 @@
+import java.io.InputStream;
 import java.io.FileInputStream;
 
 public class Compilador
@@ -9,8 +10,6 @@ public class Compilador
     
     Lexico lex(String path)
     {
-        Lexico lexico = new Lexico();
-
         FileInputStream fis;
         try
         {
@@ -22,7 +21,14 @@ public class Compilador
             return null;
         }
 
-        Yylex parser = new Yylex(fis);
+        return lex(fis);
+    }
+
+    Lexico lex(InputStream is)
+    {
+        Lexico lexico = new Lexico();
+
+        Yylex parser = new Yylex(is);
 
         try
         {
@@ -30,7 +36,6 @@ public class Compilador
             {
                 Token tok = parser.next_token();
 
-                //lexico.printaTokens();
                 if(tok != null)
                     lexico.atualiza(tok);
                 else
