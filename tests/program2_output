@@ -1,257 +1,257 @@
-* * * * * * * Tokens * * * * * * *
-0 : x
-1 : 10
-2 : minloc
-3 : a
-4 : low
-5 : high
-6 : i
-7 : k
-8 : 1
-9 : sort
-10 : t
-11 : main
-12 : 0
-13 : input
-14 : output
+* * * * * * * Símbolos * * * * * * *
+0 - x
+1 - 10
+2 - minloc
+3 - a
+4 - low
+5 - high
+6 - i
+7 - k
+8 - 1
+9 - sort
+10 - t
+11 - main
+12 - 0
+13 - input
+14 - output
 * * * * * * * Lexemes * * * * * * *
-0 : 0:0 - l: "/* Um programa para ordenação por seleção de uma matriz com dez elementos. */", t: com, a: COM
-1 : 2:0 - l: "int", t: int, a: 
-2 : 2:0 - l: "x", t: id, a: [0]
-3 : 2:0 - l: "[", t: scope, a: LO
-4 : 2:0 - l: "10", t: num, a: [1]
-5 : 2:0 - l: "]", t: scope, a: LC
-6 : 2:0 - l: ";", t: end, a: 
-7 : 4:0 - l: "int", t: int, a: 
-8 : 4:0 - l: "minloc", t: id, a: [2]
-9 : 4:0 - l: "(", t: scope, a: AO
-10 : 4:0 - l: "int", t: int, a: 
-11 : 4:0 - l: "a", t: id, a: [3]
-12 : 4:0 - l: "[", t: scope, a: LO
-13 : 4:0 - l: "]", t: scope, a: LC
-14 : 4:0 - l: ",", t: sep, a: 
-15 : 4:0 - l: "int", t: int, a: 
-16 : 4:0 - l: "low", t: id, a: [4]
-17 : 4:0 - l: ",", t: sep, a: 
-18 : 4:0 - l: "int", t: int, a: 
-19 : 4:0 - l: "high", t: id, a: [5]
-20 : 4:0 - l: ")", t: scope, a: AC
-21 : 5:0 - l: "{", t: scope, a: BO
-22 : 5:0 - l: "int", t: int, a: 
-23 : 5:0 - l: "i", t: id, a: [6]
-24 : 5:0 - l: ";", t: end, a: 
-25 : 5:0 - l: "int", t: int, a: 
-26 : 5:0 - l: "x", t: id, a: [0]
-27 : 5:0 - l: ";", t: end, a: 
-28 : 5:0 - l: "int", t: int, a: 
-29 : 5:0 - l: "k", t: id, a: [7]
-30 : 5:0 - l: ";", t: end, a: 
-31 : 6:0 - l: "k", t: id, a: [7]
-32 : 6:0 - l: "=", t: att, a: 
-33 : 6:0 - l: "low", t: id, a: [4]
-34 : 6:0 - l: ";", t: end, a: 
-35 : 7:0 - l: "x", t: id, a: [0]
-36 : 7:0 - l: "=", t: att, a: 
-37 : 7:0 - l: "a", t: id, a: [3]
-38 : 7:0 - l: "[", t: scope, a: LO
-39 : 7:0 - l: "low", t: id, a: [4]
-40 : 7:0 - l: "]", t: scope, a: LC
-41 : 7:0 - l: ";", t: end, a: 
-42 : 8:0 - l: "i", t: id, a: [6]
-43 : 8:0 - l: "=", t: att, a: 
-44 : 8:0 - l: "low", t: id, a: [4]
-45 : 8:0 - l: "+", t: soma, a: SUM
-46 : 8:0 - l: "1", t: num, a: [8]
-47 : 8:0 - l: ";", t: end, a: 
-48 : 9:0 - l: "while", t: while, a: 
-49 : 9:0 - l: "(", t: scope, a: AO
-50 : 9:0 - l: "i", t: id, a: [6]
-51 : 9:0 - l: "<", t: relop, a: LT
-52 : 9:0 - l: "high", t: id, a: [5]
-53 : 9:0 - l: ")", t: scope, a: AC
-54 : 10:0 - l: "{", t: scope, a: BO
-55 : 10:0 - l: "if", t: if, a: 
-56 : 10:0 - l: "(", t: scope, a: AO
-57 : 10:0 - l: "a", t: id, a: [3]
-58 : 10:0 - l: "[", t: scope, a: LO
-59 : 10:0 - l: "i", t: id, a: [6]
-60 : 10:0 - l: "]", t: scope, a: LC
-61 : 10:0 - l: "<", t: relop, a: LT
-62 : 10:0 - l: "x", t: id, a: [0]
-63 : 10:0 - l: ")", t: scope, a: AC
-64 : 11:0 - l: "{", t: scope, a: BO
-65 : 11:0 - l: "x", t: id, a: [0]
-66 : 11:0 - l: "=", t: att, a: 
-67 : 11:0 - l: "a", t: id, a: [3]
-68 : 11:0 - l: "[", t: scope, a: LO
-69 : 11:0 - l: "i", t: id, a: [6]
-70 : 11:0 - l: "]", t: scope, a: LC
-71 : 11:0 - l: ";", t: end, a: 
-72 : 12:0 - l: "k", t: id, a: [7]
-73 : 12:0 - l: "=", t: att, a: 
-74 : 12:0 - l: "i", t: id, a: [6]
-75 : 12:0 - l: ";", t: end, a: 
-76 : 12:0 - l: "}", t: scope, a: BC
-77 : 13:0 - l: "i", t: id, a: [6]
-78 : 13:0 - l: "=", t: att, a: 
-79 : 13:0 - l: "i", t: id, a: [6]
-80 : 13:0 - l: "+", t: soma, a: SUM
-81 : 13:0 - l: "1", t: num, a: [8]
-82 : 13:0 - l: ";", t: end, a: 
-83 : 14:0 - l: "}", t: scope, a: BC
-84 : 15:0 - l: "return", t: return, a: 
-85 : 15:0 - l: "k", t: id, a: [7]
-86 : 15:0 - l: ";", t: end, a: 
-87 : 16:0 - l: "}", t: scope, a: BC
-88 : 18:0 - l: "void", t: void, a: 
-89 : 18:0 - l: "sort", t: id, a: [9]
-90 : 18:0 - l: "(", t: scope, a: AO
-91 : 18:0 - l: "int", t: int, a: 
-92 : 18:0 - l: "a", t: id, a: [3]
-93 : 18:0 - l: "[", t: scope, a: LO
-94 : 18:0 - l: "]", t: scope, a: LC
-95 : 18:0 - l: ",", t: sep, a: 
-96 : 18:0 - l: "int", t: int, a: 
-97 : 18:0 - l: "low", t: id, a: [4]
-98 : 18:0 - l: ",", t: sep, a: 
-99 : 18:0 - l: "int", t: int, a: 
-100 : 18:0 - l: "high", t: id, a: [5]
-101 : 18:0 - l: ")", t: scope, a: AC
-102 : 19:0 - l: "{", t: scope, a: BO
-103 : 19:0 - l: "int", t: int, a: 
-104 : 19:0 - l: "i", t: id, a: [6]
-105 : 19:0 - l: ";", t: end, a: 
-106 : 19:0 - l: "int", t: int, a: 
-107 : 19:0 - l: "k", t: id, a: [7]
-108 : 19:0 - l: ";", t: end, a: 
-109 : 20:0 - l: "i", t: id, a: [6]
-110 : 20:0 - l: "=", t: att, a: 
-111 : 20:0 - l: "low", t: id, a: [4]
-112 : 20:0 - l: ";", t: end, a: 
-113 : 21:0 - l: "while", t: while, a: 
-114 : 21:0 - l: "(", t: scope, a: AO
-115 : 21:0 - l: "i", t: id, a: [6]
-116 : 21:0 - l: "<", t: relop, a: LT
-117 : 21:0 - l: "high", t: id, a: [5]
-118 : 21:0 - l: "-", t: soma, a: SUB
-119 : 21:0 - l: "1", t: num, a: [8]
-120 : 21:0 - l: ")", t: scope, a: AC
-121 : 22:0 - l: "{", t: scope, a: BO
-122 : 22:0 - l: "int", t: int, a: 
-123 : 22:0 - l: "t", t: id, a: [10]
-124 : 22:0 - l: ";", t: end, a: 
-125 : 23:0 - l: "k", t: id, a: [7]
-126 : 23:0 - l: "=", t: att, a: 
-127 : 23:0 - l: "minloc", t: id, a: [2]
-128 : 23:0 - l: "(", t: scope, a: AO
-129 : 23:0 - l: "a", t: id, a: [3]
-130 : 23:0 - l: ",", t: sep, a: 
-131 : 23:0 - l: "i", t: id, a: [6]
-132 : 23:0 - l: ",", t: sep, a: 
-133 : 23:0 - l: "high", t: id, a: [5]
-134 : 23:0 - l: ")", t: scope, a: AC
-135 : 23:0 - l: ";", t: end, a: 
-136 : 24:0 - l: "t", t: id, a: [10]
-137 : 24:0 - l: "=", t: att, a: 
-138 : 24:0 - l: "a", t: id, a: [3]
-139 : 24:0 - l: "[", t: scope, a: LO
-140 : 24:0 - l: "k", t: id, a: [7]
-141 : 24:0 - l: "]", t: scope, a: LC
-142 : 24:0 - l: ";", t: end, a: 
-143 : 25:0 - l: "a", t: id, a: [3]
-144 : 25:0 - l: "[", t: scope, a: LO
-145 : 25:0 - l: "k", t: id, a: [7]
-146 : 25:0 - l: "]", t: scope, a: LC
-147 : 25:0 - l: "=", t: att, a: 
-148 : 25:0 - l: "a", t: id, a: [3]
-149 : 25:0 - l: "[", t: scope, a: LO
-150 : 25:0 - l: "i", t: id, a: [6]
-151 : 25:0 - l: "]", t: scope, a: LC
-152 : 25:0 - l: ";", t: end, a: 
-153 : 26:0 - l: "a", t: id, a: [3]
-154 : 26:0 - l: "[", t: scope, a: LO
-155 : 26:0 - l: "i", t: id, a: [6]
-156 : 26:0 - l: "]", t: scope, a: LC
-157 : 26:0 - l: "=", t: att, a: 
-158 : 26:0 - l: "t", t: id, a: [10]
-159 : 26:0 - l: ";", t: end, a: 
-160 : 27:0 - l: "i", t: id, a: [6]
-161 : 27:0 - l: "=", t: att, a: 
-162 : 27:0 - l: "i", t: id, a: [6]
-163 : 27:0 - l: "+", t: soma, a: SUM
-164 : 27:0 - l: "1", t: num, a: [8]
-165 : 27:0 - l: ";", t: end, a: 
-166 : 28:0 - l: "}", t: scope, a: BC
-167 : 29:0 - l: "}", t: scope, a: BC
-168 : 31:0 - l: "void", t: void, a: 
-169 : 31:0 - l: "main", t: id, a: [11]
-170 : 31:0 - l: "(", t: scope, a: AO
-171 : 31:0 - l: "void", t: void, a: 
-172 : 31:0 - l: ")", t: scope, a: AC
-173 : 32:0 - l: "{", t: scope, a: BO
-174 : 32:0 - l: "int", t: int, a: 
-175 : 32:0 - l: "i", t: id, a: [6]
-176 : 32:0 - l: ";", t: end, a: 
-177 : 33:0 - l: "i", t: id, a: [6]
-178 : 33:0 - l: "=", t: att, a: 
-179 : 33:0 - l: "0", t: num, a: [12]
-180 : 33:0 - l: ";", t: end, a: 
-181 : 34:0 - l: "while", t: while, a: 
-182 : 34:0 - l: "(", t: scope, a: AO
-183 : 34:0 - l: "i", t: id, a: [6]
-184 : 34:0 - l: "<", t: relop, a: LT
-185 : 34:0 - l: "10", t: num, a: [1]
-186 : 34:0 - l: ")", t: scope, a: AC
-187 : 35:0 - l: "{", t: scope, a: BO
-188 : 35:0 - l: "x", t: id, a: [0]
-189 : 35:0 - l: "[", t: scope, a: LO
-190 : 35:0 - l: "i", t: id, a: [6]
-191 : 35:0 - l: "]", t: scope, a: LC
-192 : 35:0 - l: "=", t: att, a: 
-193 : 35:0 - l: "input", t: id, a: [13]
-194 : 35:0 - l: "(", t: scope, a: AO
-195 : 35:0 - l: ")", t: scope, a: AC
-196 : 35:0 - l: ";", t: end, a: 
-197 : 36:0 - l: "i", t: id, a: [6]
-198 : 36:0 - l: "=", t: att, a: 
-199 : 36:0 - l: "i", t: id, a: [6]
-200 : 36:0 - l: "+", t: soma, a: SUM
-201 : 36:0 - l: "1", t: num, a: [8]
-202 : 36:0 - l: ";", t: end, a: 
-203 : 36:0 - l: "}", t: scope, a: BC
-204 : 37:0 - l: "sort", t: id, a: [9]
-205 : 37:0 - l: "(", t: scope, a: AO
-206 : 37:0 - l: "x", t: id, a: [0]
-207 : 37:0 - l: ",", t: sep, a: 
-208 : 37:0 - l: "0", t: num, a: [12]
-209 : 37:0 - l: ",", t: sep, a: 
-210 : 37:0 - l: "10", t: num, a: [1]
-211 : 37:0 - l: ")", t: scope, a: AC
-212 : 37:0 - l: ";", t: end, a: 
-213 : 38:0 - l: "i", t: id, a: [6]
-214 : 38:0 - l: "=", t: att, a: 
-215 : 38:0 - l: "0", t: num, a: [12]
-216 : 38:0 - l: ";", t: end, a: 
-217 : 39:0 - l: "while", t: while, a: 
-218 : 39:0 - l: "(", t: scope, a: AO
-219 : 39:0 - l: "i", t: id, a: [6]
-220 : 39:0 - l: "<", t: relop, a: LT
-221 : 39:0 - l: "10", t: num, a: [1]
-222 : 39:0 - l: ")", t: scope, a: AC
-223 : 40:0 - l: "{", t: scope, a: BO
-224 : 40:0 - l: "output", t: id, a: [14]
-225 : 40:0 - l: "(", t: scope, a: AO
-226 : 40:0 - l: "x", t: id, a: [0]
-227 : 40:0 - l: "[", t: scope, a: LO
-228 : 40:0 - l: "i", t: id, a: [6]
-229 : 40:0 - l: "]", t: scope, a: LC
-230 : 40:0 - l: ")", t: scope, a: AC
-231 : 40:0 - l: ";", t: end, a: 
-232 : 41:0 - l: "i", t: id, a: [6]
-233 : 41:0 - l: "=", t: att, a: 
-234 : 41:0 - l: "i", t: id, a: [6]
-235 : 41:0 - l: "+", t: soma, a: SUM
-236 : 41:0 - l: "1", t: num, a: [8]
-237 : 41:0 - l: ";", t: end, a: 
-238 : 41:0 - l: "}", t: scope, a: BC
-239 : 42:0 - l: "}", t: scope, a: BC
+0 - 0:0 - l: "/* Um programa para ordenação por seleção de uma matriz com dez elementos. */", t: com, a: COM
+1 - 2:0 - l: "int", t: int, a: 
+2 - 2:0 - l: "x", t: id, a: [0]
+3 - 2:0 - l: "[", t: scope, a: LISTOPEN
+4 - 2:0 - l: "10", t: num, a: [1]
+5 - 2:0 - l: "]", t: scope, a: LISTCLOSE
+6 - 2:0 - l: ";", t: end, a: 
+7 - 4:0 - l: "int", t: int, a: 
+8 - 4:0 - l: "minloc", t: id, a: [2]
+9 - 4:0 - l: "(", t: scope, a: ARGOPEN
+10 - 4:0 - l: "int", t: int, a: 
+11 - 4:0 - l: "a", t: id, a: [3]
+12 - 4:0 - l: "[", t: scope, a: LISTOPEN
+13 - 4:0 - l: "]", t: scope, a: LISTCLOSE
+14 - 4:0 - l: ",", t: sep, a: 
+15 - 4:0 - l: "int", t: int, a: 
+16 - 4:0 - l: "low", t: id, a: [4]
+17 - 4:0 - l: ",", t: sep, a: 
+18 - 4:0 - l: "int", t: int, a: 
+19 - 4:0 - l: "high", t: id, a: [5]
+20 - 4:0 - l: ")", t: scope, a: ARGCLOSE
+21 - 5:0 - l: "{", t: scope, a: SCOPEOPEN
+22 - 5:0 - l: "int", t: int, a: 
+23 - 5:0 - l: "i", t: id, a: [6]
+24 - 5:0 - l: ";", t: end, a: 
+25 - 5:0 - l: "int", t: int, a: 
+26 - 5:0 - l: "x", t: id, a: [0]
+27 - 5:0 - l: ";", t: end, a: 
+28 - 5:0 - l: "int", t: int, a: 
+29 - 5:0 - l: "k", t: id, a: [7]
+30 - 5:0 - l: ";", t: end, a: 
+31 - 6:0 - l: "k", t: id, a: [7]
+32 - 6:0 - l: "=", t: att, a: 
+33 - 6:0 - l: "low", t: id, a: [4]
+34 - 6:0 - l: ";", t: end, a: 
+35 - 7:0 - l: "x", t: id, a: [0]
+36 - 7:0 - l: "=", t: att, a: 
+37 - 7:0 - l: "a", t: id, a: [3]
+38 - 7:0 - l: "[", t: scope, a: LISTOPEN
+39 - 7:0 - l: "low", t: id, a: [4]
+40 - 7:0 - l: "]", t: scope, a: LISTCLOSE
+41 - 7:0 - l: ";", t: end, a: 
+42 - 8:0 - l: "i", t: id, a: [6]
+43 - 8:0 - l: "=", t: att, a: 
+44 - 8:0 - l: "low", t: id, a: [4]
+45 - 8:0 - l: "+", t: soma, a: SUM
+46 - 8:0 - l: "1", t: num, a: [8]
+47 - 8:0 - l: ";", t: end, a: 
+48 - 9:0 - l: "while", t: while, a: 
+49 - 9:0 - l: "(", t: scope, a: ARGOPEN
+50 - 9:0 - l: "i", t: id, a: [6]
+51 - 9:0 - l: "<", t: relop, a: LT
+52 - 9:0 - l: "high", t: id, a: [5]
+53 - 9:0 - l: ")", t: scope, a: ARGCLOSE
+54 - 10:0 - l: "{", t: scope, a: SCOPEOPEN
+55 - 10:0 - l: "if", t: if, a: 
+56 - 10:0 - l: "(", t: scope, a: ARGOPEN
+57 - 10:0 - l: "a", t: id, a: [3]
+58 - 10:0 - l: "[", t: scope, a: LISTOPEN
+59 - 10:0 - l: "i", t: id, a: [6]
+60 - 10:0 - l: "]", t: scope, a: LISTCLOSE
+61 - 10:0 - l: "<", t: relop, a: LT
+62 - 10:0 - l: "x", t: id, a: [0]
+63 - 10:0 - l: ")", t: scope, a: ARGCLOSE
+64 - 11:0 - l: "{", t: scope, a: SCOPEOPEN
+65 - 11:0 - l: "x", t: id, a: [0]
+66 - 11:0 - l: "=", t: att, a: 
+67 - 11:0 - l: "a", t: id, a: [3]
+68 - 11:0 - l: "[", t: scope, a: LISTOPEN
+69 - 11:0 - l: "i", t: id, a: [6]
+70 - 11:0 - l: "]", t: scope, a: LISTCLOSE
+71 - 11:0 - l: ";", t: end, a: 
+72 - 12:0 - l: "k", t: id, a: [7]
+73 - 12:0 - l: "=", t: att, a: 
+74 - 12:0 - l: "i", t: id, a: [6]
+75 - 12:0 - l: ";", t: end, a: 
+76 - 12:0 - l: "}", t: scope, a: SCOPECLOSE
+77 - 13:0 - l: "i", t: id, a: [6]
+78 - 13:0 - l: "=", t: att, a: 
+79 - 13:0 - l: "i", t: id, a: [6]
+80 - 13:0 - l: "+", t: soma, a: SUM
+81 - 13:0 - l: "1", t: num, a: [8]
+82 - 13:0 - l: ";", t: end, a: 
+83 - 14:0 - l: "}", t: scope, a: SCOPECLOSE
+84 - 15:0 - l: "return", t: return, a: 
+85 - 15:0 - l: "k", t: id, a: [7]
+86 - 15:0 - l: ";", t: end, a: 
+87 - 16:0 - l: "}", t: scope, a: SCOPECLOSE
+88 - 18:0 - l: "void", t: void, a: 
+89 - 18:0 - l: "sort", t: id, a: [9]
+90 - 18:0 - l: "(", t: scope, a: ARGOPEN
+91 - 18:0 - l: "int", t: int, a: 
+92 - 18:0 - l: "a", t: id, a: [3]
+93 - 18:0 - l: "[", t: scope, a: LISTOPEN
+94 - 18:0 - l: "]", t: scope, a: LISTCLOSE
+95 - 18:0 - l: ",", t: sep, a: 
+96 - 18:0 - l: "int", t: int, a: 
+97 - 18:0 - l: "low", t: id, a: [4]
+98 - 18:0 - l: ",", t: sep, a: 
+99 - 18:0 - l: "int", t: int, a: 
+100 - 18:0 - l: "high", t: id, a: [5]
+101 - 18:0 - l: ")", t: scope, a: ARGCLOSE
+102 - 19:0 - l: "{", t: scope, a: SCOPEOPEN
+103 - 19:0 - l: "int", t: int, a: 
+104 - 19:0 - l: "i", t: id, a: [6]
+105 - 19:0 - l: ";", t: end, a: 
+106 - 19:0 - l: "int", t: int, a: 
+107 - 19:0 - l: "k", t: id, a: [7]
+108 - 19:0 - l: ";", t: end, a: 
+109 - 20:0 - l: "i", t: id, a: [6]
+110 - 20:0 - l: "=", t: att, a: 
+111 - 20:0 - l: "low", t: id, a: [4]
+112 - 20:0 - l: ";", t: end, a: 
+113 - 21:0 - l: "while", t: while, a: 
+114 - 21:0 - l: "(", t: scope, a: ARGOPEN
+115 - 21:0 - l: "i", t: id, a: [6]
+116 - 21:0 - l: "<", t: relop, a: LT
+117 - 21:0 - l: "high", t: id, a: [5]
+118 - 21:0 - l: "-", t: soma, a: SUB
+119 - 21:0 - l: "1", t: num, a: [8]
+120 - 21:0 - l: ")", t: scope, a: ARGCLOSE
+121 - 22:0 - l: "{", t: scope, a: SCOPEOPEN
+122 - 22:0 - l: "int", t: int, a: 
+123 - 22:0 - l: "t", t: id, a: [10]
+124 - 22:0 - l: ";", t: end, a: 
+125 - 23:0 - l: "k", t: id, a: [7]
+126 - 23:0 - l: "=", t: att, a: 
+127 - 23:0 - l: "minloc", t: id, a: [2]
+128 - 23:0 - l: "(", t: scope, a: ARGOPEN
+129 - 23:0 - l: "a", t: id, a: [3]
+130 - 23:0 - l: ",", t: sep, a: 
+131 - 23:0 - l: "i", t: id, a: [6]
+132 - 23:0 - l: ",", t: sep, a: 
+133 - 23:0 - l: "high", t: id, a: [5]
+134 - 23:0 - l: ")", t: scope, a: ARGCLOSE
+135 - 23:0 - l: ";", t: end, a: 
+136 - 24:0 - l: "t", t: id, a: [10]
+137 - 24:0 - l: "=", t: att, a: 
+138 - 24:0 - l: "a", t: id, a: [3]
+139 - 24:0 - l: "[", t: scope, a: LISTOPEN
+140 - 24:0 - l: "k", t: id, a: [7]
+141 - 24:0 - l: "]", t: scope, a: LISTCLOSE
+142 - 24:0 - l: ";", t: end, a: 
+143 - 25:0 - l: "a", t: id, a: [3]
+144 - 25:0 - l: "[", t: scope, a: LISTOPEN
+145 - 25:0 - l: "k", t: id, a: [7]
+146 - 25:0 - l: "]", t: scope, a: LISTCLOSE
+147 - 25:0 - l: "=", t: att, a: 
+148 - 25:0 - l: "a", t: id, a: [3]
+149 - 25:0 - l: "[", t: scope, a: LISTOPEN
+150 - 25:0 - l: "i", t: id, a: [6]
+151 - 25:0 - l: "]", t: scope, a: LISTCLOSE
+152 - 25:0 - l: ";", t: end, a: 
+153 - 26:0 - l: "a", t: id, a: [3]
+154 - 26:0 - l: "[", t: scope, a: LISTOPEN
+155 - 26:0 - l: "i", t: id, a: [6]
+156 - 26:0 - l: "]", t: scope, a: LISTCLOSE
+157 - 26:0 - l: "=", t: att, a: 
+158 - 26:0 - l: "t", t: id, a: [10]
+159 - 26:0 - l: ";", t: end, a: 
+160 - 27:0 - l: "i", t: id, a: [6]
+161 - 27:0 - l: "=", t: att, a: 
+162 - 27:0 - l: "i", t: id, a: [6]
+163 - 27:0 - l: "+", t: soma, a: SUM
+164 - 27:0 - l: "1", t: num, a: [8]
+165 - 27:0 - l: ";", t: end, a: 
+166 - 28:0 - l: "}", t: scope, a: SCOPECLOSE
+167 - 29:0 - l: "}", t: scope, a: SCOPECLOSE
+168 - 31:0 - l: "void", t: void, a: 
+169 - 31:0 - l: "main", t: id, a: [11]
+170 - 31:0 - l: "(", t: scope, a: ARGOPEN
+171 - 31:0 - l: "void", t: void, a: 
+172 - 31:0 - l: ")", t: scope, a: ARGCLOSE
+173 - 32:0 - l: "{", t: scope, a: SCOPEOPEN
+174 - 32:0 - l: "int", t: int, a: 
+175 - 32:0 - l: "i", t: id, a: [6]
+176 - 32:0 - l: ";", t: end, a: 
+177 - 33:0 - l: "i", t: id, a: [6]
+178 - 33:0 - l: "=", t: att, a: 
+179 - 33:0 - l: "0", t: num, a: [12]
+180 - 33:0 - l: ";", t: end, a: 
+181 - 34:0 - l: "while", t: while, a: 
+182 - 34:0 - l: "(", t: scope, a: ARGOPEN
+183 - 34:0 - l: "i", t: id, a: [6]
+184 - 34:0 - l: "<", t: relop, a: LT
+185 - 34:0 - l: "10", t: num, a: [1]
+186 - 34:0 - l: ")", t: scope, a: ARGCLOSE
+187 - 35:0 - l: "{", t: scope, a: SCOPEOPEN
+188 - 35:0 - l: "x", t: id, a: [0]
+189 - 35:0 - l: "[", t: scope, a: LISTOPEN
+190 - 35:0 - l: "i", t: id, a: [6]
+191 - 35:0 - l: "]", t: scope, a: LISTCLOSE
+192 - 35:0 - l: "=", t: att, a: 
+193 - 35:0 - l: "input", t: id, a: [13]
+194 - 35:0 - l: "(", t: scope, a: ARGOPEN
+195 - 35:0 - l: ")", t: scope, a: ARGCLOSE
+196 - 35:0 - l: ";", t: end, a: 
+197 - 36:0 - l: "i", t: id, a: [6]
+198 - 36:0 - l: "=", t: att, a: 
+199 - 36:0 - l: "i", t: id, a: [6]
+200 - 36:0 - l: "+", t: soma, a: SUM
+201 - 36:0 - l: "1", t: num, a: [8]
+202 - 36:0 - l: ";", t: end, a: 
+203 - 36:0 - l: "}", t: scope, a: SCOPECLOSE
+204 - 37:0 - l: "sort", t: id, a: [9]
+205 - 37:0 - l: "(", t: scope, a: ARGOPEN
+206 - 37:0 - l: "x", t: id, a: [0]
+207 - 37:0 - l: ",", t: sep, a: 
+208 - 37:0 - l: "0", t: num, a: [12]
+209 - 37:0 - l: ",", t: sep, a: 
+210 - 37:0 - l: "10", t: num, a: [1]
+211 - 37:0 - l: ")", t: scope, a: ARGCLOSE
+212 - 37:0 - l: ";", t: end, a: 
+213 - 38:0 - l: "i", t: id, a: [6]
+214 - 38:0 - l: "=", t: att, a: 
+215 - 38:0 - l: "0", t: num, a: [12]
+216 - 38:0 - l: ";", t: end, a: 
+217 - 39:0 - l: "while", t: while, a: 
+218 - 39:0 - l: "(", t: scope, a: ARGOPEN
+219 - 39:0 - l: "i", t: id, a: [6]
+220 - 39:0 - l: "<", t: relop, a: LT
+221 - 39:0 - l: "10", t: num, a: [1]
+222 - 39:0 - l: ")", t: scope, a: ARGCLOSE
+223 - 40:0 - l: "{", t: scope, a: SCOPEOPEN
+224 - 40:0 - l: "output", t: id, a: [14]
+225 - 40:0 - l: "(", t: scope, a: ARGOPEN
+226 - 40:0 - l: "x", t: id, a: [0]
+227 - 40:0 - l: "[", t: scope, a: LISTOPEN
+228 - 40:0 - l: "i", t: id, a: [6]
+229 - 40:0 - l: "]", t: scope, a: LISTCLOSE
+230 - 40:0 - l: ")", t: scope, a: ARGCLOSE
+231 - 40:0 - l: ";", t: end, a: 
+232 - 41:0 - l: "i", t: id, a: [6]
+233 - 41:0 - l: "=", t: att, a: 
+234 - 41:0 - l: "i", t: id, a: [6]
+235 - 41:0 - l: "+", t: soma, a: SUM
+236 - 41:0 - l: "1", t: num, a: [8]
+237 - 41:0 - l: ";", t: end, a: 
+238 - 41:0 - l: "}", t: scope, a: SCOPECLOSE
+239 - 42:0 - l: "}", t: scope, a: SCOPECLOSE

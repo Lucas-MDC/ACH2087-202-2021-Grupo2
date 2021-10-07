@@ -265,45 +265,40 @@ class Yylex {
 		/* 31 */ YY_NO_ANCHOR,
 		/* 32 */ YY_NO_ANCHOR,
 		/* 33 */ YY_NO_ANCHOR,
-		/* 34 */ YY_NO_ANCHOR,
-		/* 35 */ YY_NOT_ACCEPT,
+		/* 34 */ YY_NOT_ACCEPT,
+		/* 35 */ YY_NO_ANCHOR,
 		/* 36 */ YY_NO_ANCHOR,
-		/* 37 */ YY_NO_ANCHOR,
-		/* 38 */ YY_NOT_ACCEPT,
-		/* 39 */ YY_NO_ANCHOR,
-		/* 40 */ YY_NOT_ACCEPT,
-		/* 41 */ YY_NO_ANCHOR,
-		/* 42 */ YY_NOT_ACCEPT,
-		/* 43 */ YY_NO_ANCHOR,
-		/* 44 */ YY_NOT_ACCEPT,
-		/* 45 */ YY_NO_ANCHOR,
-		/* 46 */ YY_NOT_ACCEPT,
+		/* 37 */ YY_NOT_ACCEPT,
+		/* 38 */ YY_NO_ANCHOR,
+		/* 39 */ YY_NOT_ACCEPT,
+		/* 40 */ YY_NO_ANCHOR,
+		/* 41 */ YY_NOT_ACCEPT,
+		/* 42 */ YY_NO_ANCHOR,
+		/* 43 */ YY_NOT_ACCEPT,
+		/* 44 */ YY_NO_ANCHOR,
+		/* 45 */ YY_NOT_ACCEPT,
+		/* 46 */ YY_NO_ANCHOR,
 		/* 47 */ YY_NO_ANCHOR,
-		/* 48 */ YY_NO_ANCHOR,
-		/* 49 */ YY_NOT_ACCEPT,
-		/* 50 */ YY_NO_ANCHOR,
-		/* 51 */ YY_NOT_ACCEPT,
-		/* 52 */ YY_NOT_ACCEPT,
+		/* 48 */ YY_NOT_ACCEPT,
+		/* 49 */ YY_NO_ANCHOR,
+		/* 50 */ YY_NOT_ACCEPT,
+		/* 51 */ YY_NO_ANCHOR,
+		/* 52 */ YY_NO_ANCHOR,
 		/* 53 */ YY_NO_ANCHOR,
-		/* 54 */ YY_NOT_ACCEPT,
-		/* 55 */ YY_NO_ANCHOR,
+		/* 54 */ YY_NO_ANCHOR,
+		/* 55 */ YY_NOT_ACCEPT,
 		/* 56 */ YY_NO_ANCHOR,
 		/* 57 */ YY_NO_ANCHOR,
-		/* 58 */ YY_NOT_ACCEPT,
+		/* 58 */ YY_NO_ANCHOR,
 		/* 59 */ YY_NO_ANCHOR,
-		/* 60 */ YY_NOT_ACCEPT,
-		/* 61 */ YY_NO_ANCHOR,
-		/* 62 */ YY_NOT_ACCEPT,
+		/* 60 */ YY_NO_ANCHOR,
+		/* 61 */ YY_NOT_ACCEPT,
+		/* 62 */ YY_NO_ANCHOR,
 		/* 63 */ YY_NO_ANCHOR,
-		/* 64 */ YY_NO_ANCHOR,
+		/* 64 */ YY_NOT_ACCEPT,
 		/* 65 */ YY_NO_ANCHOR,
 		/* 66 */ YY_NOT_ACCEPT,
-		/* 67 */ YY_NO_ANCHOR,
-		/* 68 */ YY_NO_ANCHOR,
-		/* 69 */ YY_NOT_ACCEPT,
-		/* 70 */ YY_NO_ANCHOR,
-		/* 71 */ YY_NOT_ACCEPT,
-		/* 72 */ YY_NOT_ACCEPT
+		/* 67 */ YY_NOT_ACCEPT
 	};
 	private int yy_cmap[] = unpackFromString(1,65538,
 "0:9,1:2,0,1:2,0:18,1,30,0:4,20,0,34,35,19,28,21,22,20,18,17:10,20,31,23,29," +
@@ -311,30 +306,27 @@ class Yylex {
 "6,7,14,16:2,11,9,4,12,13,10,16:3,32,0,33,20,0:68,16,0:3,16,0:27,16,0:3,16,0" +
 ":65304,38:2")[0];
 
-	private int yy_rmap[] = unpackFromString(1,73,
-"0,1,2,3,4,5,6:3,7,8,6,9,6:8,10,11,6:5,10:6,12,11,10,13,14,15,12,16,17,18,19" +
-",20,21,22,23,24,25,26,12,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43" +
-",44,45,46")[0];
+	private int yy_rmap[] = unpackFromString(1,68,
+"0,1,2,3,4,5:4,6,7,5,8,5:8,9,5:4,9:4,10,9:2,10,11,9,12,13,14,15,16,10,17,18," +
+"19,10,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41")[0];
 
-	private int yy_nxt[][] = unpackFromString(47,39,
-"-1,1,2,36,59,36,61,36:3,67,70,36,63,36:3,3,4,5,6,7,8,9,36:3,10,11,12,37,13," +
-"14,15,16,17,18,19,20,-1,1,-1:39,36,21,36:3,39,36:9,-1:7,36:3,-1:29,3,-1:40," +
-"22,-1:37,23,-1:88,24,-1:38,25,-1:38,26,-1:11,36:15,-1:7,36:3,-1:13,35:17,58" +
-",60,35:3,72,35:8,-1:8,52:17,40,38,40:3,51,52:3,40:5,-1:36,27,-1:10,52:17,34" +
-",38,40:3,51,52:3,40:5,-1:9,36:2,28,36:12,-1:7,36:3,-1:14,36:5,29,36:9,-1:7," +
-"36:3,-1:13,52:17,40,38,40:3,42,44,52:2,40:5,-1:9,36:4,30,36:10,-1:7,36:3,-1" +
-":13,52:17,40,38,40:3,51,52,46,52,40:5,-1:9,36:13,31,36,-1:7,36:3,-1:13,52:1" +
-"7,40,38,40:3,51,52:2,40:6,-1:9,36:4,32,36:10,-1:7,36:3,-1:14,36:5,33,36:9,-" +
-"1:7,36:3,-1:13,52:18,38,40:3,51,52:3,40:5,-1:9,36:4,41,36:10,-1:7,36:3,-1:1" +
-"3,52:17,40,38,40:3,42,52:3,40:5,-1:9,36:7,43,36:7,-1:7,36:3,-1:13,35:17,58," +
-"60,35:3,72,35:3,40,35:4,-1:9,45,36:14,-1:7,36:3,-1:14,36:6,47,36:8,-1:7,36:" +
-"3,-1:14,36:9,48,36:5,-1:7,36:3,-1:13,35:17,58,49,35:3,72,35:8,-1:9,36:3,50," +
-"36:11,-1:7,36:3,-1:13,35:17,52,60,35:3,72,35:8,-1:9,36:6,53,36:8,-1:7,36:3," +
-"-1:13,35:17,58,60,35:3,72,35:3,54,35:4,-1:9,36:12,55,36:2,-1:7,36:3,-1:14,5" +
-"6,36:14,-1:7,36:3,-1:14,36:10,57,36:4,-1:7,36:3,-1:13,35:17,58,60,35:3,72,3" +
-"5:2,62,35:5,-1:9,36:3,64,36:11,-1:7,36:3,-1:14,36:2,65,36:12,-1:7,36:3,-1:1" +
-"3,35:17,58,60,35:3,72,35,66,35:6,-1:9,36:4,68,36:10,-1:7,36:3,-1:13,35:17,5" +
-"8,60,35:3,71,69,35:7,-1:8,35:17,58,60,35:3,71,35:8,-1:7");
+	private int yy_nxt[][] = unpackFromString(42,39,
+"-1,1,2,35,56,35,57,35:3,62,65,35,58,35:3,3,4,5,6,7,8,9,35:3,10,11,12,36,13," +
+"14,15,16,17,18,19,20,-1,1,-1:39,35,21,35:3,38,35:9,-1:7,35:3,-1:29,3,-1:40," +
+"34,-1:87,22,-1:38,23,-1:38,24,-1:11,35:15,-1:7,35:3,-1:13,41:17,45,43,41:12" +
+",-1:8,34:17,48,37,34:3,67,34:8,-1:36,25,-1:10,34:17,30,37,34:3,67,34:8,-1:9" +
+",35:2,26,35:12,-1:7,35:3,-1:13,41:17,30,43,41:12,-1:9,35:5,27,35:9,-1:7,35:" +
+"3,-1:14,35:4,28,35:10,-1:7,35:3,-1:13,41:17,33,43,41:12,-1:9,35:13,29,35,-1" +
+":7,35:3,-1:14,35:4,31,35:10,-1:7,35:3,-1:14,35:5,32,35:9,-1:7,35:3,-1:13,34" +
+":17,48,39,34:3,67,34:8,-1:9,35:4,40,35:10,-1:7,35:3,-1:13,34:17,48,37,34:3," +
+"67,34:3,41,34:4,-1:9,35:7,42,35:7,-1:7,35:3,-1:14,44,35:14,-1:7,35:3,-1:14," +
+"35:6,46,35:8,-1:7,35:3,-1:14,35:9,47,35:5,-1:7,35:3,-1:13,34:17,48,37,34:3," +
+"67,34:3,50,34:4,-1:9,35:3,49,35:11,-1:7,35:3,-1:14,35:6,51,35:8,-1:7,35:3,-" +
+"1:14,35:12,52,35:2,-1:7,35:3,-1:14,53,35:14,-1:7,35:3,-1:14,35:10,54,35:4,-" +
+"1:7,35:3,-1:13,34:17,48,37,34:3,67,34:2,55,34:5,-1:9,35:3,59,35:11,-1:7,35:" +
+"3,-1:14,35:2,60,35:12,-1:7,35:3,-1:13,34:17,48,37,34:3,67,34,61,34:6,-1:9,3" +
+"5:4,63,35:10,-1:7,35:3,-1:13,34:17,48,37,34:3,66,64,34:7,-1:8,34:17,48,37,3" +
+"4:3,66,34:8,-1:7");
 
 	public Token next_token ()
 		throws java.io.IOException {
@@ -465,78 +457,78 @@ class Yylex {
 					case -22:
 						break;
 					case 22:
-						{ return new Token(yytext(), "com" , "COMOPEN", yyline); }
+						{ return new Token(yytext(), "relop", "LE", yyline); }
 					case -23:
 						break;
 					case 23:
-						{ return new Token(yytext(), "com" , "COMCLOSE", yyline); }
+						{ return new Token(yytext(), "relop", "GE", yyline); }
 					case -24:
 						break;
 					case 24:
-						{ return new Token(yytext(), "relop", "LE", yyline); }
+						{ return new Token(yytext(), "relop", "EQ", yyline); }
 					case -25:
 						break;
 					case 25:
-						{ return new Token(yytext(), "relop", "GE", yyline); }
+						{ return new Token(yytext(), "relop", "NQ", yyline); }
 					case -26:
 						break;
 					case 26:
-						{ return new Token(yytext(), "relop", "EQ", yyline); }
+						{ return new Token(yytext(), "int"   , "", yyline); }
 					case -27:
 						break;
 					case 27:
-						{ return new Token(yytext(), "relop", "NQ", yyline); }
+						{ return new Token(yytext(), "then"  , "", yyline); }
 					case -28:
 						break;
 					case 28:
-						{ return new Token(yytext(), "int"   , "", yyline); }
+						{ return new Token(yytext(), "else"  , "", yyline); }
 					case -29:
 						break;
 					case 29:
-						{ return new Token(yytext(), "then"  , "", yyline); }
+						{ return new Token(yytext(), "void"  , "", yyline); }
 					case -30:
 						break;
 					case 30:
-						{ return new Token(yytext(), "else"  , "", yyline); }
+						{ return new Token(yytext(), "com" , "COM", yyline); }
 					case -31:
 						break;
 					case 31:
-						{ return new Token(yytext(), "void"  , "", yyline); }
+						{ return new Token(yytext(), "while" , "", yyline); }
 					case -32:
 						break;
 					case 32:
-						{ return new Token(yytext(), "while" , "", yyline); }
+						{ return new Token(yytext(), "return", "", yyline); }
 					case -33:
 						break;
 					case 33:
-						{ return new Token(yytext(), "return", "", yyline); }
+						{ return new Token(yytext(), "ERROR" , "COM", yyline); }
 					case -34:
 						break;
-					case 34:
-						{ return new Token(yytext(), "ERROR" , "COM", yyline); }
+					case 35:
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -35:
 						break;
 					case 36:
-						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
+						{ return new Token(yytext(), "ERROR", "", yyline); }
 					case -36:
 						break;
-					case 37:
-						{ return new Token(yytext(), "ERROR", "", yyline); }
+					case 38:
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -37:
 						break;
-					case 39:
+					case 40:
 						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -38:
 						break;
-					case 41:
+					case 42:
 						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -39:
 						break;
-					case 43:
+					case 44:
 						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -40:
 						break;
-					case 45:
+					case 46:
 						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -41:
 						break;
@@ -544,61 +536,57 @@ class Yylex {
 						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -42:
 						break;
-					case 48:
+					case 49:
 						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -43:
 						break;
-					case 50:
+					case 51:
 						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -44:
 						break;
-					case 53:
+					case 52:
 						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -45:
 						break;
-					case 55:
+					case 53:
 						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -46:
 						break;
-					case 56:
+					case 54:
 						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -47:
 						break;
-					case 57:
+					case 56:
 						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -48:
 						break;
-					case 59:
+					case 57:
 						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -49:
 						break;
-					case 61:
+					case 58:
 						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -50:
 						break;
-					case 63:
+					case 59:
 						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -51:
 						break;
-					case 64:
+					case 60:
 						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -52:
 						break;
-					case 65:
+					case 62:
 						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -53:
 						break;
-					case 67:
+					case 63:
 						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -54:
 						break;
-					case 68:
+					case 65:
 						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -55:
-						break;
-					case 70:
-						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
-					case -56:
 						break;
 					default:
 						yy_error(YY_E_INTERNAL,false);
