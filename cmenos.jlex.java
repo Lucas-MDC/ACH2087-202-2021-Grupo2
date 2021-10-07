@@ -1,25 +1,31 @@
 class Token
 {
+    static final String TYPE_ID  = "id";
+    static final String TYPE_NUM = "num";
     String lexeme;
-    String token;
+    String tipo;
     String atributo;
-    int linha;
-    int coluna;
-    Token(String lexeme, String token, String atributo, int linha)
+    int    linha;
+    int    coluna;
+    Token(String lexeme, String tipo, String atributo, int linha)
     {
         this.lexeme   = lexeme;
-        this.token    = token;
+        this.tipo     = tipo;
         this.atributo = atributo;
         this.linha    = linha;
         this.coluna   = coluna;
     }
+    boolean referenciavel()
+    {
+        return (this.tipo.equals(TYPE_ID) || this.tipo.equals(TYPE_NUM));
+    }
     boolean comparaTokens(Token b)
     {
-        return (this.token.equals(b.token) && this.atributo.equals(b.atributo));
+        return (this.tipo.equals(b.tipo) && this.lexeme.equals(b.lexeme));
     }
     String string()
     {
-        return "l: \"" + this.lexeme + "\", t: " + this.token + ", a: "  + this.atributo;
+        return "l: \"" + this.lexeme + "\", t: " + this.tipo + ", a: "  + this.atributo;
     }
 }
 
@@ -32,8 +38,8 @@ class Yylex {
 	private final int YY_START = 1;
 	private final int YY_END = 2;
 	private final int YY_NO_ANCHOR = 4;
-	private final int YY_BOL = 128;
-	private final int YY_EOF = 129;
+	private final int YY_BOL = 65536;
+	private final int YY_EOF = 65537;
 	private java.io.BufferedReader yy_reader;
 	private int yy_buffer_index;
 	private int yy_buffer_read;
@@ -258,22 +264,22 @@ class Yylex {
 		/* 30 */ YY_NO_ANCHOR,
 		/* 31 */ YY_NO_ANCHOR,
 		/* 32 */ YY_NO_ANCHOR,
-		/* 33 */ YY_NOT_ACCEPT,
-		/* 34 */ YY_NO_ANCHOR,
+		/* 33 */ YY_NO_ANCHOR,
+		/* 34 */ YY_NOT_ACCEPT,
 		/* 35 */ YY_NO_ANCHOR,
-		/* 36 */ YY_NOT_ACCEPT,
-		/* 37 */ YY_NO_ANCHOR,
-		/* 38 */ YY_NOT_ACCEPT,
-		/* 39 */ YY_NO_ANCHOR,
-		/* 40 */ YY_NOT_ACCEPT,
-		/* 41 */ YY_NO_ANCHOR,
+		/* 36 */ YY_NO_ANCHOR,
+		/* 37 */ YY_NOT_ACCEPT,
+		/* 38 */ YY_NO_ANCHOR,
+		/* 39 */ YY_NOT_ACCEPT,
+		/* 40 */ YY_NO_ANCHOR,
+		/* 41 */ YY_NOT_ACCEPT,
 		/* 42 */ YY_NO_ANCHOR,
-		/* 43 */ YY_NO_ANCHOR,
+		/* 43 */ YY_NOT_ACCEPT,
 		/* 44 */ YY_NO_ANCHOR,
-		/* 45 */ YY_NO_ANCHOR,
+		/* 45 */ YY_NOT_ACCEPT,
 		/* 46 */ YY_NO_ANCHOR,
 		/* 47 */ YY_NO_ANCHOR,
-		/* 48 */ YY_NO_ANCHOR,
+		/* 48 */ YY_NOT_ACCEPT,
 		/* 49 */ YY_NO_ANCHOR,
 		/* 50 */ YY_NO_ANCHOR,
 		/* 51 */ YY_NO_ANCHOR,
@@ -281,26 +287,33 @@ class Yylex {
 		/* 53 */ YY_NO_ANCHOR,
 		/* 54 */ YY_NO_ANCHOR,
 		/* 55 */ YY_NO_ANCHOR,
-		/* 56 */ YY_NO_ANCHOR
+		/* 56 */ YY_NO_ANCHOR,
+		/* 57 */ YY_NO_ANCHOR,
+		/* 58 */ YY_NO_ANCHOR,
+		/* 59 */ YY_NO_ANCHOR,
+		/* 60 */ YY_NO_ANCHOR,
+		/* 61 */ YY_NO_ANCHOR
 	};
-	private int yy_cmap[] = unpackFromString(1,130,
-"0:9,1:2,0,1:2,0:18,1,25,0:6,30,31,19,20,27,21,0,18,17:10,0,26,22,23,24,0:2," +
-"16:26,32,0,33,0:3,16:3,15,6,3,16,5,2,16:2,8,16,7,14,16:2,11,9,4,12,13,10,16" +
-":3,28,0,29,0:2,34:2")[0];
+	private int yy_cmap[] = unpackFromString(1,65538,
+"0:9,1:2,0,1:2,0:18,1,27,0:4,20,0,31,32,19,23,21,22,20,18,17:10,20,28,24,25," +
+"26,20,0,16:26,33,0,34,0:2,20,16:3,15,6,3,16,5,2,16:2,8,16,7,14,16:2,11,9,4," +
+"12,13,10,16:3,29,0,30,0:69,16,0:3,16,0:27,16,0:3,16,0:65304,35:2")[0];
 
-	private int yy_rmap[] = unpackFromString(1,57,
-"0,1,2,3,4:3,5,6,7,4:9,8:2,9,4:4,8:4,4,8:2,9,8,10,11,12,13,14,15,16,17,18,19" +
-",20,21,22,23,24,25,26,27,28,29,30,31")[0];
+	private int yy_rmap[] = unpackFromString(1,62,
+"0,1,2,3,4,5:5,6,7,8,5:8,9,5:4,9:4,10,9:2,10,11,9,12,13,14,15,16,10,17,18,19" +
+",10,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35")[0];
 
-	private int yy_nxt[][] = unpackFromString(32,35,
-"-1,1,2,34,45,34,47,34:3,53,56,34,49,34:3,33,3,4,5,6,7,8,9,36,10,11,12,13,14" +
-",15,16,17,18,-1,1,-1:35,19,20,19:3,35,19:9,-1:37,38,-1:73,22,-1:34,23,-1:34" +
-",24,-1:13,19:15,-1:35,21,-1:19,19:2,26,19:12,-1:41,25,-1:13,19:5,27,19:9,-1" +
-":19,38:17,-1,40,-1:17,19:4,28,19:10,-1:36,30,-1:18,19:13,29,19,-1:20,19:4,3" +
-"1,19:10,-1:20,19:5,32,19:9,-1:20,19:4,37,19:10,-1:20,19:3,44,19:11,-1:20,19" +
-":7,39,19:7,-1:20,19:6,46,19:8,-1:20,41,19:14,-1:20,19:12,48,19:2,-1:20,19:6" +
-",42,19:8,-1:20,19:9,43,19:5,-1:20,50,19:14,-1:20,19:3,52,19:11,-1:20,19:10," +
-"51,19:4,-1:20,19:2,54,19:12,-1:20,19:4,55,19:10,-1:18");
+	private int yy_nxt[][] = unpackFromString(36,36,
+"-1,1,2,35,54,35,55,35:3,59,61,35,56,35:3,3,4,5,6,7,8,9,10,11,12,36,13,14,15" +
+",16,17,18,19,20,-1,1,-1:36,35,21,35:3,38,35:9,-1:36,3,-1:37,34,-1:77,22,-1:" +
+"35,23,-1:35,24,-1:12,35:15,-1:20,41:17,45,43,41:9,-1:8,34:17,48,37,34:9,-1:" +
+"32,25,-1:11,34:17,30,37,34:9,-1:9,35:2,26,35:12,-1:20,41:17,30,43,41:9,-1:9" +
+",35:5,27,35:9,-1:21,35:4,28,35:10,-1:20,41:17,33,43,41:9,-1:9,35:13,29,35,-" +
+"1:21,35:4,31,35:10,-1:21,35:5,32,35:9,-1:20,34:17,48,39,34:9,-1:9,35:4,40,3" +
+"5:10,-1:21,35:7,42,35:7,-1:21,44,35:14,-1:21,35:6,46,35:8,-1:21,35:9,47,35:" +
+"5,-1:21,35:3,49,35:11,-1:21,35:6,50,35:8,-1:21,35:12,51,35:2,-1:21,52,35:14" +
+",-1:21,35:10,53,35:4,-1:21,35:3,57,35:11,-1:21,35:2,58,35:12,-1:21,35:4,60," +
+"35:10,-1:19");
 
 	public Token next_token ()
 		throws java.io.IOException {
@@ -351,83 +364,83 @@ class Yylex {
 					case -2:
 						break;
 					case 2:
-						{ return new Token(yytext(), "erro lexico", "", yyline); }
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -3:
 						break;
 					case 3:
-						{ return new Token(yytext(), "mul", "DIV", yyline);  }
+						{ return new Token(yytext(), Token.TYPE_NUM, "", yyline); }
 					case -4:
 						break;
 					case 4:
-						{ return new Token(yytext(), "mul", "MUL", yyline);  }
+						{ return new Token(yytext(), "mul", "DIV", yyline);  }
 					case -5:
 						break;
 					case 5:
-						{ return new Token(yytext(), "soma", "SUM", yyline); }
+						{ return new Token(yytext(), "mul", "MUL", yyline);  }
 					case -6:
 						break;
 					case 6:
-						{ return new Token(yytext(), "soma", "SUB", yyline); }
+						{ return new Token(yytext(), "erro lexico", "", yyline); }
 					case -7:
 						break;
 					case 7:
-						{ return new Token(yytext(), "relop", "LT", yyline); }
+						{ return new Token(yytext(), "sep", "", yyline); }
 					case -8:
 						break;
 					case 8:
-						{ return new Token(yytext(), "att", "", yyline); }
+						{ return new Token(yytext(), "soma", "SUB", yyline); }
 					case -9:
 						break;
 					case 9:
-						{ return new Token(yytext(), "relop", "GT", yyline); }
+						{ return new Token(yytext(), "soma", "SUM", yyline); }
 					case -10:
 						break;
 					case 10:
-						{ return new Token(yytext(), "end", "", yyline); }
+						{ return new Token(yytext(), "relop", "LT", yyline); }
 					case -11:
 						break;
 					case 11:
-						{ return new Token(yytext(), "sep", "", yyline); }
+						{ return new Token(yytext(), "att", "", yyline); }
 					case -12:
 						break;
 					case 12:
-						{ return new Token(yytext(), "scope", "BO", yyline); }
+						{ return new Token(yytext(), "relop", "GT", yyline); }
 					case -13:
 						break;
 					case 13:
-						{ return new Token(yytext(), "scope", "BC", yyline); }
+						{ return new Token(yytext(), "end", "", yyline); }
 					case -14:
 						break;
 					case 14:
-						{ return new Token(yytext(), "scope", "AO", yyline); }
+						{ return new Token(yytext(), "scope", "BO", yyline); }
 					case -15:
 						break;
 					case 15:
-						{ return new Token(yytext(), "scope", "AC", yyline); }
+						{ return new Token(yytext(), "scope", "BC", yyline); }
 					case -16:
 						break;
 					case 16:
-						{ return new Token(yytext(), "scope", "LO", yyline); }
+						{ return new Token(yytext(), "scope", "AO", yyline); }
 					case -17:
 						break;
 					case 17:
-						{ return new Token(yytext(), "scope", "LC", yyline); }
+						{ return new Token(yytext(), "scope", "AC", yyline); }
 					case -18:
 						break;
 					case 18:
-						
+						{ return new Token(yytext(), "scope", "LO", yyline); }
 					case -19:
 						break;
 					case 19:
-						{ return new Token(yytext(), "id"    , "", yyline); }
+						{ return new Token(yytext(), "scope", "LC", yyline); }
 					case -20:
 						break;
 					case 20:
-						{ return new Token(yytext(), "if"    , "", yyline); }
+						
 					case -21:
 						break;
 					case 21:
-						{ return new Token(yytext(), "num" , "", yyline); }
+						{ return new Token(yytext(), "if"    , "", yyline); }
 					case -22:
 						break;
 					case 22:
@@ -463,7 +476,7 @@ class Yylex {
 					case -30:
 						break;
 					case 30:
-						{ return new Token(yytext(), "com" , "COMC", yyline); }
+						{ return new Token(yytext(), "com" , "COM", yyline); }
 					case -31:
 						break;
 					case 31:
@@ -474,85 +487,93 @@ class Yylex {
 						{ return new Token(yytext(), "return", "", yyline); }
 					case -33:
 						break;
-					case 34:
-						{ return new Token(yytext(), "erro lexico", "", yyline); }
+					case 33:
+						{ return new Token(yytext(), "erro lexico" , "COM", yyline); }
 					case -34:
 						break;
 					case 35:
-						{ return new Token(yytext(), "id"    , "", yyline); }
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -35:
 						break;
-					case 37:
-						{ return new Token(yytext(), "id"    , "", yyline); }
+					case 36:
+						{ return new Token(yytext(), "erro lexico", "", yyline); }
 					case -36:
 						break;
-					case 39:
-						{ return new Token(yytext(), "id"    , "", yyline); }
+					case 38:
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -37:
 						break;
-					case 41:
-						{ return new Token(yytext(), "id"    , "", yyline); }
+					case 40:
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -38:
 						break;
 					case 42:
-						{ return new Token(yytext(), "id"    , "", yyline); }
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -39:
 						break;
-					case 43:
-						{ return new Token(yytext(), "id"    , "", yyline); }
+					case 44:
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -40:
 						break;
-					case 44:
-						{ return new Token(yytext(), "id"    , "", yyline); }
+					case 46:
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -41:
 						break;
-					case 45:
-						{ return new Token(yytext(), "erro lexico", "", yyline); }
+					case 47:
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -42:
 						break;
-					case 46:
-						{ return new Token(yytext(), "id"    , "", yyline); }
+					case 49:
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -43:
 						break;
-					case 47:
-						{ return new Token(yytext(), "erro lexico", "", yyline); }
+					case 50:
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -44:
 						break;
-					case 48:
-						{ return new Token(yytext(), "id"    , "", yyline); }
+					case 51:
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -45:
 						break;
-					case 49:
-						{ return new Token(yytext(), "erro lexico", "", yyline); }
+					case 52:
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -46:
 						break;
-					case 50:
-						{ return new Token(yytext(), "id"    , "", yyline); }
+					case 53:
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -47:
 						break;
-					case 51:
-						{ return new Token(yytext(), "id"    , "", yyline); }
+					case 54:
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -48:
 						break;
-					case 52:
-						{ return new Token(yytext(), "id"    , "", yyline); }
+					case 55:
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -49:
 						break;
-					case 53:
-						{ return new Token(yytext(), "erro lexico", "", yyline); }
+					case 56:
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -50:
 						break;
-					case 54:
-						{ return new Token(yytext(), "id"    , "", yyline); }
+					case 57:
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -51:
 						break;
-					case 55:
-						{ return new Token(yytext(), "id"    , "", yyline); }
+					case 58:
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -52:
 						break;
-					case 56:
-						{ return new Token(yytext(), "erro lexico", "", yyline); }
+					case 59:
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 					case -53:
+						break;
+					case 60:
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
+					case -54:
+						break;
+					case 61:
+						{ return new Token(yytext(), Token.TYPE_ID , "", yyline); }
+					case -55:
 						break;
 					default:
 						yy_error(YY_E_INTERNAL,false);

@@ -2,12 +2,15 @@ clean:
 	-rm *.class
 	clear
 
-make lex:
+lex:
 	jlex cmenos.jlex
 
-all:
+build:
 	jlex cmenos.jlex
 	javac Main.java Compilador.java cmenos.jlex.java Lexico.java
-	clear
-	java Main
-	-rm *.class
+
+test1:
+	java Main tests/program1_safe.c
+
+test2:
+	java Main tests/program2_safe.c

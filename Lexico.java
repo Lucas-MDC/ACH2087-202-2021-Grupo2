@@ -2,18 +2,17 @@ import java.util.ArrayList;
 
 public class Lexico
 {
-    ArrayList<Token> tabela_tokens;
+    ArrayList<Token>    tabela_simbolos;
     ArrayList<Object[]> tabela_lexemes;
 
-    static final int NOVO       = -1;
-    static final int POS_TOKEN  = 0;
-    static final int POS_LINHA  = 1;
-    static final int POS_COLUNA = 2;
-    static final int POS_LEXEME = 3;
+    static final int NREF    = -2;
+    static final int NOVO    = -1;
+    static final int POS_PTR = 0;
+    static final int POS_TOK = 1;
 
     Lexico()
     {
-        tabela_tokens  = new ArrayList<Token>();
+        tabela_simbolos  = new ArrayList<Token>();
         tabela_lexemes = new ArrayList<Object[]>();
     }
 
@@ -21,10 +20,10 @@ public class Lexico
     {
         int pos = NOVO;
 
-        // Procura na tabela_tokens
-        for(int i = 0; i < tabela_tokens.size(); i++)
+        // Procura na tabela_simbolos
+        for(int i = 0; i < tabela_simbolos.size(); i++)
         {
-            Token tok_test = tabela_tokens.get(i);
+            Token tok_test = tabela_simbolos.get(i);
 
             if(tok_test.comparaTokens(tok))
             {
@@ -41,12 +40,12 @@ public class Lexico
         // Se for novo, adiciona na tabela de tokens
         if(pos == NOVO)
         {
-            tabela_tokens.add(tok);
-            pos = tabela_tokens.size()-1;
+            tabela_simbolos.add(tok);
+            pos = tabela_simbolos.size()-1;
         }
 
         // Adiciona na tabela de lexemes encontrados, entrada unica por posicao
-        tabela_lexemes.add(new Object[]{pos, tok.linha, tok.coluna, tok.lexeme});
+        tabela_lexemes.add(new Object[]{pos, tok});
     }
 
     void atualiza(Token tok)
@@ -54,14 +53,21 @@ public class Lexico
         if(tok == null)
             return;
 
-        adiciona(tok, busca(tok));
+        int pos = 0;
+
+        if(tok.referenciavel())
+            pos = busca(tok);
+        else
+            pos = NREF;
+
+        adiciona(tok, pos);
     }
 
     void printaTokens()
     {
         System.out.println("* * * * * * * Tokens * * * * * * *");
-        for(int i = 0; i < tabela_tokens.size(); i++)
-            System.out.println(i + " : " + tabela_tokens.get(i).string());
+        for(int i = 0; i < tabela_simbolos.size(); i++)
+            System.out.println(i + " : " + tabela_simbolos.get(i).lexeme);
     }
 
     void printaLexemes()
@@ -70,9 +76,16 @@ public class Lexico
         for(int i = 0; i < tabela_lexemes.size(); i++)
         {
             Object[] lex = tabela_lexemes.get(i);
-            Token tok = tabela_tokens.get((int)lex[POS_TOKEN]);
+            Token tok = (Token)lex[POS_TOK];
 
-            System.out.println(i + " : " + lex[POS_LINHA] + ":" + lex[POS_COLUNA] + " - l: \"" + lex[POS_LEXEME] + "\", t: " + tok.token + ", a: " + tok.atributo);
+            String atributo;
+
+            if(tok.referenciavel())
+                 atributo =  "[" + (int)lex[POS_PTR] + "]"; 
+            else
+                atributo = tok.atributo;
+
+            System.out.println(i + " : " + tok.linha + ":" + tok.coluna + " - l: \"" + tok.lexeme + "\", t: " + tok.tipo + ", a: " + atributo);
         }
     }
 }

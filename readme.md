@@ -10,3 +10,5 @@
 
 /\*    { return new Token(yytext(), "com" , "COMO", yyline); }
 \*/    { return new Token(yytext(), "com" , "COMC", yyline); }
+
+    /* u -u/v*v == u mod v */

@@ -1,41 +1,53 @@
 class Token
 {
-    String lexeme;
-    String token;
-    String atributo;
-    int linha;
-    int coluna;
+    static final String TYPE_ID  = "id";
+    static final String TYPE_NUM = "num";
 
-    Token(String lexeme, String token, String atributo, int linha)
+    String lexeme;
+    String tipo;
+    String atributo;
+    int    linha;
+    int    coluna;
+
+    Token(String lexeme, String tipo, String atributo, int linha)
     {
         this.lexeme   = lexeme;
-        this.token    = token;
+        this.tipo     = tipo;
         this.atributo = atributo;
         this.linha    = linha;
         this.coluna   = coluna;
     }
 
+    boolean referenciavel()
+    {
+        return (this.tipo.equals(TYPE_ID) || this.tipo.equals(TYPE_NUM));
+    }
+
     boolean comparaTokens(Token b)
     {
-        return (this.token.equals(b.token) && this.atributo.equals(b.atributo));
+        return (this.tipo.equals(b.tipo) && this.lexeme.equals(b.lexeme));
     }
 
     String string()
     {
-        return "l: \"" + this.lexeme + "\", t: " + this.token + ", a: "  + this.atributo;
+        return "l: \"" + this.lexeme + "\", t: " + this.tipo + ", a: "  + this.atributo;
     }
 }
 
 %%
 
 DIGIT   = [0-9]
-LETTER  = [a-zA-Z]
+LETTER  = [a-zA-ZçÇãÃ]
 WS      = [ \t\n\f\r]     
+SPECIAL = [*+/;-<=>,]
 
-NUM     = {DIGIT}{DIGIT}+ 
-ID      = {LETTER}{LETTER}+
-ANY     = {LETTER}|{DIGIT}|{WS}
+NUM       = {DIGIT}{DIGIT}*
+ID        = {LETTER}{LETTER}*
+BANIDOS   = [.`&?:!~]
+EXCLUIDOS = [^A-Za-z0-9]
+ANY       = {LETTER}|{DIGIT}|{WS}|{BANIDOS}|{SPECIAL}|\-
 
+%unicode 
 %function next_token
 %type Token
 %line
@@ -50,10 +62,11 @@ int    { return new Token(yytext(), "int"   , "", yyline); }
 while  { return new Token(yytext(), "while" , "", yyline); }
 return { return new Token(yytext(), "return", "", yyline); }
 void   { return new Token(yytext(), "void"  , "", yyline); }
-{ID}   { return new Token(yytext(), "id"    , "", yyline); }
-{NUM}  { return new Token(yytext(), "num" , "", yyline); }
+{ID}   { return new Token(yytext(), Token.TYPE_ID , "", yyline); }
+{NUM}  { return new Token(yytext(), Token.TYPE_NUM, "", yyline); }
 
-/\*({ANY})*\*/    { return new Token(yytext(), "com" , "COM", yyline); }
+(/\*)({ANY})*((/\*)|(\*/))({ANY})*(\*/) { return new Token(yytext(), "erro lexico" , "COM", yyline); }
+(/\*)({ANY})*(\*/) { return new Token(yytext(), "com" , "COM", yyline); }
 
 "*"  { return new Token(yytext(), "mul", "MUL", yyline);  }
 "/"  { return new Token(yytext(), "mul", "DIV", yyline);  }
@@ -78,4 +91,4 @@ void   { return new Token(yytext(), "void"  , "", yyline); }
 "["  { return new Token(yytext(), "scope", "LO", yyline); }
 "]"  { return new Token(yytext(), "scope", "LC", yyline); }
 
-{LETTER} { return new Token(yytext(), "erro lexico", "", yyline); }
+{BANIDOS} { return new Token(yytext(), "ERROR", "", yyline); }
