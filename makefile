@@ -9,8 +9,11 @@ build:
 	jlex cmenos.jlex
 	javac Main.java Compilador.java cmenos.jlex.java Lexico.java
 
-test1:
+teste1:
 	java Main tests/program1_safe.c
 
-test2:
+teste2:
 	java Main tests/program2_safe.c
+
+teste1zuado:
+	java Main tests/program1_zuado.c

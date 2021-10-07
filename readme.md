@@ -5,10 +5,8 @@
 * JLEX ubuntu: sudo apt-get install jlex
 * JLEX windows: *emoji da carinha pensando*
 
+## ?
 
-##
 
-/\*    { return new Token(yytext(), "com" , "COMO", yyline); }
-\*/    { return new Token(yytext(), "com" , "COMC", yyline); }
-
-    /* u -u/v*v == u mod v */
+(/\*) { return new Token(yytext(), "com" , "COMOPEN", yyline); }
+(\*/) { return new Token(yytext(), "com" , "COMCLOSE", yyline); }

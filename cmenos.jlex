@@ -65,8 +65,8 @@ void   { return new Token(yytext(), "void"  , "", yyline); }
 {ID}   { return new Token(yytext(), Token.TYPE_ID , "", yyline); }
 {NUM}  { return new Token(yytext(), Token.TYPE_NUM, "", yyline); }
 
-(/\*)({ANY})*((/\*)|(\*/))({ANY})*(\*/) { return new Token(yytext(), "erro lexico" , "COM", yyline); }
-(/\*)({ANY})*(\*/) { return new Token(yytext(), "com" , "COM", yyline); }
+(/\*)({ANY})*((/\*)|(\*/)|<<EOF>>)({ANY})*(\*/) { return new Token(yytext(), "ERROR" , "COM", yyline); }
+(/\*)({ANY})*(\*/)                              { return new Token(yytext(), "com" , "COM", yyline); }
 
 "*"  { return new Token(yytext(), "mul", "MUL", yyline);  }
 "/"  { return new Token(yytext(), "mul", "DIV", yyline);  }
@@ -84,11 +84,11 @@ void   { return new Token(yytext(), "void"  , "", yyline); }
 ";"  { return new Token(yytext(), "end", "", yyline); }
 ","  { return new Token(yytext(), "sep", "", yyline); }
 
-"{"  { return new Token(yytext(), "scope", "BO", yyline); }
-"}"  { return new Token(yytext(), "scope", "BC", yyline); }
-"("  { return new Token(yytext(), "scope", "AO", yyline); }
-")"  { return new Token(yytext(), "scope", "AC", yyline); }
-"["  { return new Token(yytext(), "scope", "LO", yyline); }
-"]"  { return new Token(yytext(), "scope", "LC", yyline); }
+"{"  { return new Token(yytext(), "scope", "SCOPEOPEN", yyline); }
+"}"  { return new Token(yytext(), "scope", "SCOPECLOSE", yyline); }
+"("  { return new Token(yytext(), "scope", "ARGOPEN", yyline); }
+")"  { return new Token(yytext(), "scope", "ARGCLOSE", yyline); }
+"["  { return new Token(yytext(), "scope", "LISTOPEN", yyline); }
+"]"  { return new Token(yytext(), "scope", "LISTCLOSE", yyline); }
 
 {BANIDOS} { return new Token(yytext(), "ERROR", "", yyline); }

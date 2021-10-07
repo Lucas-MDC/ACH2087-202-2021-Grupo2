@@ -65,9 +65,9 @@ public class Lexico
 
     void printaTokens()
     {
-        System.out.println("* * * * * * * Tokens * * * * * * *");
+        System.out.println("* * * * * * * Símbolos * * * * * * *");
         for(int i = 0; i < tabela_simbolos.size(); i++)
-            System.out.println(i + " : " + tabela_simbolos.get(i).lexeme);
+            System.out.println(i + " - " + tabela_simbolos.get(i).lexeme);
     }
 
     void printaLexemes()
@@ -85,7 +85,7 @@ public class Lexico
             else
                 atributo = tok.atributo;
 
-            System.out.println(i + " : " + tok.linha + ":" + tok.coluna + " - l: \"" + tok.lexeme + "\", t: " + tok.tipo + ", a: " + atributo);
+            System.out.println(i + " - " + tok.linha + ":" + tok.coluna + " - l: \"" + tok.lexeme + "\", t: " + tok.tipo + ", a: " + atributo);
         }
     }
 }

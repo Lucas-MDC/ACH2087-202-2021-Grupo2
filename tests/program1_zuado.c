@@ -11,3 +11,7 @@ void main(void)
   x = input(); y = input();
   output(gcd(x,y));  
 }
+
+/* /* */
+asdsd
+/* */ asdasd

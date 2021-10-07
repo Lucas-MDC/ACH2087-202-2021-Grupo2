@@ -8,7 +8,7 @@ public class Compilador
         System.out.println(o);
     }
     
-    Lexico lex(String path)
+    Lexico lex(String path) throws Exception
     {
         FileInputStream fis;
         try
@@ -17,14 +17,14 @@ public class Compilador
         }
         catch(Exception ex)
         {
-            ex.printStackTrace();
-            return null;
+            System.out.println("Arquivo não pode ser encontrado");
+            throw ex;
         }
 
         return lex(fis);
     }
 
-    Lexico lex(InputStream is)
+    Lexico lex(InputStream is) throws Exception
     {
         Lexico lexico = new Lexico();
 
@@ -47,8 +47,7 @@ public class Compilador
         }
         catch(Exception ex)
         {
-            ex.printStackTrace();
-            return null;
+            throw ex;
         }
 
         return lexico;

@@ -16,7 +16,7 @@ public class Main
         catch(Exception ex)
         {
             System.out.println("Erro não especificado.");
-            ex.printStackTrace();
+            //ex.printStackTrace();
         }
     }
 }
