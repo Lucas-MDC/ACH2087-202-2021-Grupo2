@@ -37,9 +37,10 @@ class Token
 %%
 
 DIGIT   = [0-9]
-LETTER  = [a-zA-ZçÇãÃ]
+LETTER  = [a-zA-ZçÇãÃé]
 WS      = [ \t\n\f\r]     
-SPECIAL = [*+/;-<=>,]
+SPECIAL = [\]\[\{\}*+/;-<=>,]
+WS2     = [ \t\f\r]     
 
 NUM       = {DIGIT}{DIGIT}*
 ID        = {LETTER}{LETTER}*
@@ -66,7 +67,6 @@ void   { return new Token(yytext(), "void"  , "", yyline); }
 {NUM}  { return new Token(yytext(), Token.TYPE_NUM, "", yyline); }
 
 (/\*)({ANY})*((/\*)|(\*/)|<<EOF>>)({ANY})*(\*/) { return new Token(yytext(), "ERROR" , "COM", yyline); }
-(/\*)({ANY})*(\*/)                              { return new Token(yytext(), "com" , "COM", yyline); }
 
 "*"  { return new Token(yytext(), "mul", "MUL", yyline);  }
 "/"  { return new Token(yytext(), "mul", "DIV", yyline);  }
