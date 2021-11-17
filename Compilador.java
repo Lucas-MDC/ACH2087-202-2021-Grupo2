@@ -1,5 +1,8 @@
 import java.io.InputStream;
+import java.io.OutputStream;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.DataOutputStream;
 
 public class Compilador
 {
@@ -9,12 +12,15 @@ public class Compilador
         System.out.println(o);
     }
     
-    Lexico lex(String path) throws Exception
+    Lexico lex(String path, String opath) throws Exception
     {
-        FileInputStream fis;
+        FileInputStream  fis;
+        FileOutputStream fos;
+
         try
         {
             fis = new FileInputStream(path);
+            fos = new FileOutputStream(opath);
         }
         catch(Exception ex)
         {
@@ -22,10 +28,10 @@ public class Compilador
             throw ex;
         }
 
-        return lex(fis);
+        return lex(fis, fos);
     }
 
-    Lexico lex(InputStream is) throws Exception
+    Lexico lex(InputStream is, OutputStream os) throws Exception
     {
         Lexico lexico = new Lexico();
 
@@ -51,6 +57,7 @@ public class Compilador
             throw ex;
         }
 
+        DataOutputStream dos = new DataOutputStream(os);
 
         for(int i = 0; i < lexico.tabela_lexemes.size(); i++)
         {
@@ -64,7 +71,7 @@ public class Compilador
             else
                 atributo = tok.atributo;
 
-            System.out.println(tok.linha + ", t: " + tok.tipo + ", a: " + atributo);
+            dos.writeChars(tok.linha + " " + tok.tipo + " " + atributo + "\n");
 
             //tok.tipo
             //String atributo;

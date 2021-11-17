@@ -11,7 +11,7 @@ public class Main
         try 
         {
             Compilador c = new Compilador();
-            c.lex(args[0]);
+            c.lex(args[0], args[1]);
         }
         catch(Exception ex)
         {

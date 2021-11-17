@@ -5,15 +5,15 @@ clean:
 lex:
 	jlex cmenos.jlex
 
-build:
-	jlex cmenos.jlex
+buildlex:
 	javac Main.java Compilador.java cmenos.jlex.java Lexico.java
 
-teste1:
-	java Main tests/program1_safe.c
+buildparser:
+	bison cmenos.bison --output=Calc.java 
+	java Calc.java >> infix
 
-teste2:
-	java Main tests/program2_safe.c
+teste1:
+	java Main tests/prg4.c- output.lolcode
 
 teste1zuado:
-	java Main tests/program1_zuado.c
+	java Main tests/program1_zuado.c output.lolcode
