@@ -12,8 +12,8 @@ public class Lexico
 
     Lexico()
     {
-        tabela_simbolos  = new ArrayList<Token>();
-        tabela_lexemes = new ArrayList<Object[]>();
+        tabela_simbolos = new ArrayList<Token>();
+        tabela_lexemes  = new ArrayList<Object[]>();
     }
 
     int busca(Token tok)
